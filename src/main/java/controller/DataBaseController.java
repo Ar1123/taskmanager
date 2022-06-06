@@ -29,7 +29,8 @@ public class DataBaseController {
 
     public void gf() {
         try {
-
+                
+            //Tu ruta de la key firebase
             FileInputStream serviceAccount
                     = new FileInputStream("C://Users//Laptop Asus M415DA//Desktop//Universidad//semestre 8//S.O//taller procesos//desktop//firebase.json");
 
