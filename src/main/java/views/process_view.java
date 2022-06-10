@@ -2,8 +2,10 @@ package views;
 
 import controller.*;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import model.ProcessModel;
+import utils.EnumProcess;
 
 public class process_view extends javax.swing.JFrame {
 
@@ -13,34 +15,38 @@ public class process_view extends javax.swing.JFrame {
     public process_view() {
 
         initComponents();
+        loadComobobox();
         this.controller = new Controller();
         ModT = (DefaultTableModel) tab.getModel();
 
     }
-
+    private void loadComobobox(){
+        
+        cb1.setModel(new DefaultComboBoxModel(EnumProcess.values()));
+    }
     private void processFilter() {
         ArrayList<ProcessModel> result = new ArrayList<>();
         ArrayList<ProcessModel> result2 = new ArrayList<>();
 
         result = this.controller.processBuilder.getProcess();
-        int selectedIndex = cb1.getSelectedIndex();
-        String nameSelectedIndex = (String) cb1.getSelectedItem();
+        System.out.println(cb1.getSelectedItem().toString());
+        String selectedIndex =  cb1.getSelectedItem().toString();
      
-        result2 = this.controller.processManager.filterProcess(result, selectedIndex + 1);
+        result2 = this.controller.processManager.filterProcess(result, EnumProcess.valueOf(selectedIndex));
         int n = result2.size();
         ModT.setRowCount(n);
 
         for (int i = 0; i < n; i++) {
 
-            ModT.setValueAt(i + 1 + "", i, 0);//Indice
-            ModT.setValueAt(result2.get(i).getPid(), i, 1);//Pid
-            ModT.setValueAt(result2.get(i).getName(), i, 2);//Nombre
-            ModT.setValueAt(result2.get(i).getUser(), i, 3);//Usuario
-            ModT.setValueAt(result2.get(i).getDescription(), i, 4);//Descripcion
-            ModT.setValueAt(result2.get(i).getPriority(), i, 5);//Prioridad
+//            ModT.setValueAt(i + 1 + "", i, 0);//Indice
+//            ModT.setValueAt(result2.get(i).getPid(), i, 1);//Pid
+//            ModT.setValueAt(result2.get(i).getName(), i, 2);//Nombre
+//            ModT.setValueAt(result2.get(i).getUser(), i, 3);//Usuario
+//            ModT.setValueAt(result2.get(i).getDescription(), i, 4);//Descripcion
+//            ModT.setValueAt(result2.get(i).getPriority(), i, 5);//Prioridad
         }
         
-        this.controller.dataBaseController.createLocalJson(nameSelectedIndex, result2);
+//        this.controller.dataBaseController.createLocalJson(nameSelectedIndex, result2);
         result.clear();
     }
 

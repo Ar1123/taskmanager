@@ -46,36 +46,36 @@ public class DataBaseController {
     }
 
     public void addData(String name, ArrayList<ProcessModel> pm) {
-        gf();
-        Map<String, String> hm = new HashMap<String, String>();
-
-        for (int i = 0; i < pm.size(); i++) {
-            System.out.println(pm.get(i).getDescription());
-            DocumentReference doc = fs.collection(name).document(pm.get(i).getName());
-            hm.put("description", pm.get(i).getDescription());
-            hm.put("id", (i + 1)+"");
-
-            ApiFuture<WriteResult> result = doc.set(hm);
-            try {
-                System.out.println(result.get().getUpdateTime());
-            } catch (InterruptedException ex) {
-                System.out.println("------------------------");
-                Logger.getLogger(DataBaseController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ExecutionException ex) {
-                System.out.println("***********************************");
-                Logger.getLogger(DataBaseController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
+//        gf();
+//        Map<String, String> hm = new HashMap<String, String>();
+//
+//        for (int i = 0; i < pm.size(); i++) {
+//            System.out.println(pm.get(i).getDescription());
+//            DocumentReference doc = fs.collection(name).document(pm.get(i).getName());
+//            hm.put("description", pm.get(i).getDescription());
+//            hm.put("id", (i + 1)+"");
+//
+//            ApiFuture<WriteResult> result = doc.set(hm);
+//            try {
+//                System.out.println(result.get().getUpdateTime());
+//            } catch (InterruptedException ex) {
+//                System.out.println("------------------------");
+//                Logger.getLogger(DataBaseController.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (ExecutionException ex) {
+//                System.out.println("***********************************");
+//                Logger.getLogger(DataBaseController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//
+//        }
     }
      
     public void createLocalJson(String name, ArrayList<ProcessModel> pm) {
-        FileController fc = new FileController();
-        fc.createFolder(name);
-        pm.forEach(e -> {
-            String json = gson.toJson(new BuildObject(e.getDescription()));
-            fc.createFile(e.getName(), json);
-        });
+//        FileController fc = new FileController();
+//        fc.createFolder(name);
+//        pm.forEach(e -> {
+//            String json = gson.toJson(new BuildObject(e.getDescription()));
+//            fc.createFile(e.getName(), json);
+//        });
 
     }
 

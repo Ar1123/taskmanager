@@ -2,69 +2,89 @@ package model;
 
 public class ProcessModel {
 
-    private int Pid;
-    private String name;
-    private String user;
-    private String description;
-    private char priority;
-    private String memory;
-    private String cpu;
+    private String processName;
+    private String pid;
+    private String sessionName;
+    private String sessionNumber;
+    private String memoryUse;
+    private String state;
+    private String cpuTime;
+    private String userName;
+    private String windowTitle;
+
     public ProcessModel() {
     }
 
-    public void setPid(int Pid) {
-        this.Pid = Pid;
+    public void setProcessName(String processName) {
+        this.processName = processName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPid(String pid) {
+        this.pid = pid;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setSessionName(String sessionName) {
+        this.sessionName = sessionName;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSessionNumber(String sessionNumber) {
+        this.sessionNumber = sessionNumber;
     }
 
-    public void setPriority(char priority) {
-        this.priority = priority;
+    public void setMemoryUse(String memoryUse) {
+        this.memoryUse = memoryUse;
     }
 
-    public void setMemory(String memory) {
-        this.memory = memory;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public void setCpu(String cpu) {
-        this.cpu = cpu;
+    public void setCpuTime(String cpuTime) {
+        this.cpuTime = cpuTime;
     }
 
-    public int getPid() {
-        return Pid;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getName() {
-        return name;
+    public void setWindowTitle(String windowTitle) {
+        this.windowTitle = windowTitle;
     }
 
-    public String getUser() {
-        return user;
+    public String getProcessName() {
+        return processName;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPid() {
+        return pid;
     }
 
-    public char getPriority() {
-        return priority;
+    public String getSessionName() {
+        return sessionName;
     }
 
-    public String getMemory() {
-        return memory;
+    public String getMemoryUse() {
+        return memoryUse;
     }
 
-    public String getCpu() {
-        return cpu;
+    public String getSessionNumber() {
+        return sessionNumber;
     }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getCpuTime() {
+        return cpuTime;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getWindowTitle() {
+        return windowTitle;
+    }
+
 }
