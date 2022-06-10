@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import model.ProcessModel;
 
 public class ProcessBuilderController {
@@ -58,8 +59,8 @@ public class ProcessBuilderController {
                         processModel.setSessionNumber(l[3]);
                         processModel.setMemoryUse(l[4]);
                         processModel.setState(l[5]);
-                        processModel.setCpuTime(l[6]);
-                        processModel.setUserName(l[7]);
+                        processModel.setUserName(l[6]);
+                        processModel.setCpuTime(l[7]);
                         processModel.setWindowTitle(l[8]);
                         processLists.add(processModel);
                         counter = 0;
