@@ -52,12 +52,13 @@ public class ProcessBuilderController {
                     newline += line.split(":\\s")[1].trim().replace(",", ".") + ",";
                     if (counter == 9) {
                         String[] l = newline.split(",");
+                         System.out.println(l[1] +"<-->"+l[4].replace("N/D", "0 KB"));   
                         processModel = new ProcessModel();
                         processModel.setProcessName(l[0]);
                         processModel.setPid(l[1]);
                         processModel.setSessionName(l[2]);
                         processModel.setSessionNumber(l[3]);
-                        processModel.setMemoryUse(l[4]);
+                        processModel.setMemoryUse(l[4].replace("N/D", "0 KB"));
                         processModel.setState(l[5]);
                         processModel.setUserName(l[6]);
                         processModel.setCpuTime(l[7]);
@@ -68,7 +69,6 @@ public class ProcessBuilderController {
                     }
                 }
             }
-
         } catch (IOException ex) {
             System.out.println("F x tí :( Error al formar array: " + ex);
         }

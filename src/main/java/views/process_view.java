@@ -56,7 +56,7 @@ public class process_view extends javax.swing.JFrame {
 
         }
 
-//        this.controller.dataBaseController.createLocalJson(nameSelectedIndex, result2);
+//        this.controller.dataBaseController.addData(selectedIndex, result2, n);
         result.clear();
     }
 

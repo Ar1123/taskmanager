@@ -40,6 +40,9 @@ public class ProcessManagerController {
     }
 
     private void MenorRam() {
+        processListp.forEach(e->{
+                System.out.println(e.getMemoryUse());
+            });
         processListp.sort((ProcessModel p1, ProcessModel p2)
                 -> Integer.compare(Integer.parseInt(p1.getMemoryUse().replace("KB", "").replace(".", "").replace(",", "").trim()), Integer.parseInt(p2.getMemoryUse().replace("KB", "").replace(".", "").replace(",", "").trim()))
         );
