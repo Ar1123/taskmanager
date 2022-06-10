@@ -9,41 +9,41 @@ import model.ProcessModel;
 import utils.EnumProcess;
 
 public class process_view extends javax.swing.JFrame {
-    
+
     private final DefaultTableModel ModT;
     private final Controller controller;
-    
+
     public process_view() {
-        
+
         initComponents();
         loadComobobox();
         this.controller = new Controller();
         ModT = (DefaultTableModel) tab.getModel();
-        
+
     }
-    
+
     private void loadComobobox() {
-        
+
         cb1.setModel(new DefaultComboBoxModel(EnumProcess.values()));
     }
-    
+
     private void processFilter() {
         ArrayList<ProcessModel> result = new ArrayList<>();
         ArrayList<ProcessModel> result2 = new ArrayList<>();
         if (tf1.getText().trim().isEmpty()) {
-            
+
             JOptionPane.showMessageDialog(this, "Indica el número de procesos a listar");
             return;
         }
-        
+
         result = this.controller.processBuilder.getProcess();
         System.out.println(cb1.getSelectedItem().toString());
         String selectedIndex = cb1.getSelectedItem().toString();
-        
+
         result2 = this.controller.processManager.filterProcess(result, EnumProcess.valueOf(selectedIndex));
         int n = Integer.parseInt(tf1.getText().trim());
         ModT.setRowCount(n);
-        
+
         for (int i = 0; i < n; i++) {
             ModT.setValueAt(i + 1 + "", i, 0);//Indice
             ModT.setValueAt(result2.get(i).getPid(), i, 1);//Pid
@@ -51,12 +51,15 @@ public class process_view extends javax.swing.JFrame {
             ModT.setValueAt(result2.get(i).getUserName(), i, 3);//Usuario
             ModT.setValueAt(result2.get(i).getProcessName(), i, 4);//Descripcion
             ModT.setValueAt(result2.get(i).getPid(), i, 5);//Prioridad
+            ModT.setValueAt(result2.get(i).getMemoryUse(), i, 6);//Prioridad
+            ModT.setValueAt(result2.get(i).getCpuTime(), i, 7);//Prioridad
+
         }
 
 //        this.controller.dataBaseController.createLocalJson(nameSelectedIndex, result2);
         result.clear();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -89,14 +92,14 @@ public class process_view extends javax.swing.JFrame {
 
             },
             new String [] {
-                "#", "PID", "NOMBRE", "USUARIO", "DESCRIPCION", "PRIORIDAD"
+                "#", "PID", "NOMBRE", "USUARIO", "DESCRIPCION", "PRIORIDAD", "MEMORIA", "CPU"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, true
+                true, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -171,7 +174,7 @@ public class process_view extends javax.swing.JFrame {
     private void cb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb1ActionPerformed
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
