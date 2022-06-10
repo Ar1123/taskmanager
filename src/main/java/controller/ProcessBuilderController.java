@@ -49,7 +49,7 @@ public class ProcessBuilderController {
             while ((line = br.readLine()) != null) {
                 if (!line.isEmpty()) {
                     counter++;
-                    newline += line.split(":\\s")[1].trim() + ",";
+                    newline += line.split(":\\s")[1].trim().replace(",", ".") + ",";
                     if (counter == 9) {
                         String[] l = newline.split(",");
                         processModel = new ProcessModel();
