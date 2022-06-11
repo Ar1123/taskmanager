@@ -25,7 +25,7 @@ public class ProcessManagerController {
                 MenorRam();
             case USUARIO ->
                 usuario();
-            case SYSTEMA ->
+            case SISTEMA ->
                 sistema();
         }
         return processListp;

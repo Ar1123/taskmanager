@@ -5,5 +5,5 @@ public enum EnumProcess {
   MAYOR_RAM,
   MENOR_RAM,
   USUARIO,
-  SYSTEMA,
+  SISTEMA,
 }

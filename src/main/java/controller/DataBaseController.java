@@ -54,11 +54,14 @@ public class DataBaseController {
                 hm.put("processName", pm.get(i).getProcessName());
                 hm.put("id", i + 1);
                 hm.put("capture", new Date().toString());
-                CollectionReference docR = fs.collection(name).document(new Date().toString()).collection(i + 1 + pm.get(i).getProcessName());
-                docR.document(pm.get(i).getProcessName()).set(hm);
+//                CollectionReference docR = fs.collection(name).document(new Date().toString()).collection(i + 1 + pm.get(i).getProcessName());
+//                docR.document(pm.get(i).getProcessName()).set(hm);
+                DocumentReference doc = fs.collection(name).document(pm.get(i).getProcessName()+"-"+new Date().getTime());
+                          doc.set(hm);
             }
 
         } catch (Exception e) {
+            System.out.println(e);
         }
     }
 

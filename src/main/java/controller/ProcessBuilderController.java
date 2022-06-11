@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import model.ProcessModel;
 
 public class ProcessBuilderController {
@@ -26,6 +25,7 @@ public class ProcessBuilderController {
         try {
             // se inicia el proceso
             p = pb.start();
+            
         } catch (IOException e) {
             System.out.println("F x tí :( Error ejecutando comando-->" + e);
         }
@@ -50,9 +50,11 @@ public class ProcessBuilderController {
                 if (!line.isEmpty()) {
                     counter++;
                     newline += line.split(":\\s")[1].trim().replace(",", ".") + ",";
+                        System.out.println(line);
+                       
                     if (counter == 9) {
+                        
                         String[] l = newline.split(",");
-                         System.out.println(l[1] +"<-->"+l[4].replace("N/D", "0 KB"));   
                         processModel = new ProcessModel();
                         processModel.setProcessName(l[0]);
                         processModel.setPid(l[1]);
