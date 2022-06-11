@@ -68,6 +68,7 @@ public class ProcessBuilderController {
                         processModel.setCpuTime(l[7]);
                         processModel.setWindowTitle(l[8]);
                         processModel.setArrivalTime((d == 9) ? "0" : (System.nanoTime() - startTime) / 1e6+"");
+                        processModel.setPriority((l[6].contains("N/D") || l[6].contains("SYSTEM"))?"1":"0");
                         processLists.add(processModel);
 
                         counter = 0;

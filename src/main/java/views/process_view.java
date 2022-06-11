@@ -50,14 +50,14 @@ public class process_view extends javax.swing.JFrame {
             ModT.setValueAt(result2.get(i).getProcessName(), i, 2);//Nombre
             ModT.setValueAt(result2.get(i).getUserName(), i, 3);//Usuario
             ModT.setValueAt(result2.get(i).getProcessName(), i, 4);//Descripcion
-            ModT.setValueAt(result2.get(i).getPid(), i, 5);//Prioridad
+            ModT.setValueAt(result2.get(i).getPriority(), i, 5);//Prioridad
             ModT.setValueAt(result2.get(i).getMemoryUse(), i, 6);//Prioridad
             ModT.setValueAt(result2.get(i).getCpuTime(), i, 7);//Prioridad
             ModT.setValueAt(result2.get(i).getArrivalTime(), i, 8);//Prioridad
 
         }
 
-//        this.controller.dataBaseController.addData(selectedIndex, result2, n);
+        this.controller.dataBaseController.addData(selectedIndex, result2, n);
         result.clear();
     }
 

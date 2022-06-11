@@ -12,6 +12,7 @@ public class ProcessModel {
     private String userName;
     private String windowTitle;
     private String arrivalTime;
+    private String priority;
 
     public ProcessModel() {
     }
@@ -56,6 +57,10 @@ public class ProcessModel {
         this.arrivalTime = arrivalTime;
     }
 
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
+
     public String getProcessName() {
         return processName;
     }
@@ -94,6 +99,10 @@ public class ProcessModel {
 
     public String getArrivalTime() {
         return arrivalTime;
+    }
+
+    public String getPriority() {
+        return priority;
     }
 
 }

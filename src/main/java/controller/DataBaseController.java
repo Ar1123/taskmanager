@@ -1,11 +1,8 @@
 package controller;
 
-import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
@@ -24,7 +21,7 @@ public class DataBaseController {
     Firestore fs;
 
     public DataBaseController() {
-            gf();
+        gf();
 
     }
 
@@ -54,10 +51,13 @@ public class DataBaseController {
                 hm.put("processName", pm.get(i).getProcessName());
                 hm.put("id", i + 1);
                 hm.put("capture", new Date().toString());
+                hm.put("arrivalTime", pm.get(i).getArrivalTime());
+                hm.put("priority", pm.get(i).getPriority());
+
 //                CollectionReference docR = fs.collection(name).document(new Date().toString()).collection(i + 1 + pm.get(i).getProcessName());
 //                docR.document(pm.get(i).getProcessName()).set(hm);
-                DocumentReference doc = fs.collection(name).document(pm.get(i).getProcessName()+"-"+new Date().getTime());
-                          doc.set(hm);
+                DocumentReference doc = fs.collection(name).document(pm.get(i).getProcessName() + "-" + new Date().getTime());
+                doc.set(hm);
             }
 
         } catch (Exception e) {
