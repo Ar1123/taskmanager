@@ -14,20 +14,20 @@ public class ProcessManagerController {
     public ArrayList<ProcessModel> filterProcess(ArrayList<ProcessModel> processList, EnumProcess type) {
         processListp.clear();
         processListp.addAll(processList);
-        switch (type) {
-            case MAYOR_CPU ->
-                MayorCpu();
-            case MENOR_CPU ->
-                MenorCpu();
-            case MAYOR_RAM ->
-                MayorRam();
-            case MENOR_RAM ->
-                MenorRam();
-            case USUARIO ->
-                usuario();
-            case SISTEMA ->
-                sistema();
-        }
+//        switch (type) {
+//            case MAYOR_CPU ->
+//                MayorCpu();
+//            case MENOR_CPU ->
+//                MenorCpu();
+//            case MAYOR_RAM ->
+//                MayorRam();
+//            case MENOR_RAM ->
+//                MenorRam();
+//            case USUARIO ->
+//                usuario();
+//            case SISTEMA ->
+//                sistema();
+//        }
         return processListp;
     }
 

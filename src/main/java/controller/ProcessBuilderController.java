@@ -25,7 +25,7 @@ public class ProcessBuilderController {
         try {
             // se inicia el proceso
             p = pb.start();
-            
+
         } catch (IOException e) {
             System.out.println("F x tí :( Error ejecutando comando-->" + e);
         }
@@ -44,16 +44,18 @@ public class ProcessBuilderController {
         String line;
         String newline = "";
         int counter = 0;
+        long startTime = System.nanoTime();
+        int d = 0;
         try {
             //Mientras existan lineas con datos
             while ((line = br.readLine()) != null) {
                 if (!line.isEmpty()) {
                     counter++;
+                    d++;
                     newline += line.split(":\\s")[1].trim().replace(",", ".") + ",";
-                        System.out.println(line);
-                       
+                    System.out.println("<-->");
                     if (counter == 9) {
-                        
+
                         String[] l = newline.split(",");
                         processModel = new ProcessModel();
                         processModel.setProcessName(l[0]);
@@ -65,12 +67,15 @@ public class ProcessBuilderController {
                         processModel.setUserName(l[6]);
                         processModel.setCpuTime(l[7]);
                         processModel.setWindowTitle(l[8]);
+                        processModel.setArrivalTime((d == 9) ? "0" : (System.nanoTime() - startTime) / 1e6+"");
                         processLists.add(processModel);
+
                         counter = 0;
                         newline = "";
                     }
                 }
             }
+            System.out.println("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
         } catch (IOException ex) {
             System.out.println("F x tí :( Error al formar array: " + ex);
         }

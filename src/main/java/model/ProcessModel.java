@@ -11,6 +11,7 @@ public class ProcessModel {
     private String cpuTime;
     private String userName;
     private String windowTitle;
+    private String arrivalTime;
 
     public ProcessModel() {
     }
@@ -51,6 +52,10 @@ public class ProcessModel {
         this.windowTitle = windowTitle;
     }
 
+    public void setArrivalTime(String arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
     public String getProcessName() {
         return processName;
     }
@@ -85,6 +90,10 @@ public class ProcessModel {
 
     public String getWindowTitle() {
         return windowTitle;
+    }
+
+    public String getArrivalTime() {
+        return arrivalTime;
     }
 
 }
